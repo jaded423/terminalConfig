@@ -1,0 +1,39 @@
+[default_session]
+startup_command = "~/.config/sesh/scripts/default.sh"
+
+[[session]]
+name = "remote"
+startup_command = "tmux rename-window Book5 && ssh book5 -t 'zsh -ic t'"
+windows = ["Omarchy", "Tower", "Ubuntu", "Dax"]
+
+[[session]]
+name = "btop"
+startup_command = "~/.config/sesh/scripts/btop.sh"
+
+[[window]]
+name = "Omarchy"
+startup_script = "ssh omarchy -t 'zsh -ic t'"
+
+[[window]]
+name = "Tower"
+startup_script = "ssh tower -t 'zsh -ic t'"
+
+[[window]]
+name = "Ubuntu"
+startup_script = "ssh ubuntu -t 'zsh -ic t'"
+
+[[window]]
+name = "Dax"
+startup_script = "ssh dax"
+
+blacklist = [
+  "/",
+  "/Users",
+  "/opt",
+  "/opt/homebrew",
+  "/opt/homebrew/bin",
+  "/private/tmp",
+  "/tmp",
+  "/tmp/claude",
+  "/tmp/mynav-build",
+]

@@ -1,0 +1,9 @@
+# TPM clones plugins on first launch — don't track 3rd-party code
+tmux/plugins/
+
+# Mac
+.DS_Store
+
+# Editor swap
+*.swp
+*.swo
