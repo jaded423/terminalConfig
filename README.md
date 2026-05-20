@@ -213,18 +213,6 @@ Day-to-day AI runs in a dedicated tmux pane via `claude` (Claude Code CLI) — n
 
 ---
 
-## 💀 Blame my existence on
-
-The rabbit holes that pulled me into this stack:
-
-- [**@ThePrimeagen**](https://github.com/ThePrimeagen) — patient zero. vim motions, the "never touch the mouse" gospel, and the broader terminal-first mindset
-- [**@omerxx**](https://github.com/omerxx) — `sesh` itself, plus the dotfiles + tmux content that made session-as-workflow click
-- [**@theNetworkChuck**](https://github.com/theNetworkChuck) — homelab pipeline that took this from "just a dev setup" to "tmux + sesh ssh-multiplex into a Proxmox cluster"
-
-Standing on shoulders. Go follow them.
-
----
-
 ## 🐛 Troubleshooting
 
 ```bash
