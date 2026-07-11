@@ -4,6 +4,20 @@ All notable changes to terminalConfig (tmux + sesh) are documented here.
 
 ---
 
+## 2026-07-07 - Removed `prefix F` (/fresh handoff cycle retired)
+
+**What changed:**
+- Deleted the `bind F` keybind + its comment block from `tmux/tmux.conf`. It drove `~/scripts/bin/freshnext.sh` for the `/fresh` clear+resume cycle.
+- Also live-`unbind`'d `F` from the running tmux server (`tmux unbind-key F`) — `source-file` / `prefix R` re-sources the conf but does **not** drop binds deleted from the file, so a reload alone left it live.
+
+**Why:**
+- The entire `/fresh` session-handoff system was retired 2026-07-07 (sessions are now TODO-driven). `freshnext.sh` was graveyarded, so the bind pointed at a dead script. See global changelog + `graveyard/fresh-retire-2026-07/`.
+
+**Files modified:**
+- `tmux/tmux.conf` - removed `bind F` block
+
+---
+
 ## 2026-06-20 - prefix + F now switches to the target project's sesh session
 
 **What changed:**
