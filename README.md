@@ -163,7 +163,7 @@ tmux
     ├── sesh.toml                # named-session definitions
     └── scripts/
         ├── default.sh           # default session: claude + neo (nvim)
-        ├── remote.sh            # SSH multiplex: book5/omarchy/tower/ubuntu/dax
+        ├── remote.sh            # SSH multiplex: book5/omarchy/tower/ubuntu
         └── btop.sh              # system monitor session
 ```
 
@@ -176,7 +176,7 @@ Pre-defined sessions in `sesh/sesh.toml`:
 | Name | What it spawns |
 |---|---|
 | `default` | Window 1: `claude` (Claude Code CLI). Window 2: `nvim` |
-| `remote` | Multi-window SSH split: Book5, Omarchy, Tower, Ubuntu, Dax — full homelab on one prefix |
+| `remote` | Multi-window SSH split: Book5, Omarchy, Tower, Ubuntu — full homelab on one prefix |
 | `btop` | System monitor in a dedicated session |
 
 Add your own in `sesh.toml`. `sesh` auto-detects git repos in `~/projects` as ephemeral sessions too.

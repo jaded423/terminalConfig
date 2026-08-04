@@ -17,9 +17,5 @@ tmux send-keys -t "$SESSION:Tower" "ssh tower -t 'zsh -ic t'" Enter
 tmux new-window -t "$SESSION" -n "Ubuntu"
 tmux send-keys -t "$SESSION:Ubuntu" "ssh ubuntu -t 'zsh -ic t'" Enter
 
-# Window 5: Dax
-tmux new-window -t "$SESSION" -n "Dax"
-tmux send-keys -t "$SESSION:Dax" "ssh dax" Enter
-
 # Select first window
 tmux select-window -t "$SESSION:Book5"
