@@ -1,6 +1,21 @@
 # Changelog
 
-All notable changes to terminalConfig (tmux + sesh) are documented here.
+All notable changes to terminalConfig (tmux + sesh + ghostty) are documented here.
+
+---
+
+## 2026-09-15 - Ghostty config joins the repo + `install.sh`
+
+**What changed:**
+- New `ghostty/` dir: `config` (shared), `linux.conf` (Omarchy/Hyprland), `mac.conf` (the retired dev Mac's Phala Green Dark look), `dark.conf` (Linux black-glass override), `README.md`.
+- New `install.sh`: symlinks `~/.config/{tmux,sesh}` and writes the 2-line `~/.config/ghostty/config` stub that picks `linux.conf` or `mac.conf` by `uname`. `unibrain/install-all.sh` already calls a repo's `install.sh` when present, so nothing changed there.
+
+**Why:**
+- Mac → Pocket cutover: the Mac's Ghostty config lived only in `~/Library/Application Support/com.mitchellh.ghostty/config` (outside every repo, not in the Tower mirror); the Pocket's was a loose file. One home now.
+- Ghostty has no OS conditionals and loads `config-file` includes after the including file finishes — hence the per-machine stub and the separate `dark.conf` (an inline `background =` in `linux.conf` lost to the Omarchy theme include).
+
+**Files modified:**
+- `ghostty/*` (new), `install.sh` (new)
 
 ---
 

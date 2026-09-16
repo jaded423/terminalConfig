@@ -1,0 +1,15 @@
+# Ghostty — shared settings (every machine). Machine stub at ~/.config/ghostty/config includes this
+# first, then the per-OS file (linux.conf / mac.conf). Ghostty has no OS conditionals, hence the stub.
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+# Clipboard
+copy-on-select = clipboard
+# Send Shift+Enter as CSI-u so TUIs (Claude Code, tmux) can distinguish it from Enter.
+keybind = shift+enter=csi:13;2u
+# Legacy encoding sends Alt+Shift+Enter the same as Alt+Enter; send CSI-u so tmux can match M-S-Enter.
+keybind = alt+shift+enter=csi:13;4u
+# Slow the mouse wheel a touch
+mouse-scroll-multiplier = 0.95
+confirm-close-surface = false
+resize-overlay = never
