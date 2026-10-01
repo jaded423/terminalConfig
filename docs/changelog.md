@@ -4,6 +4,18 @@ All notable changes to terminalConfig (tmux + sesh + ghostty) are documented her
 
 ---
 
+## 2026-10-01 - `smart-close.sh` lands on the most recent session, not the oldest
+
+**What changed:**
+- When closing the session you are in, the client now hops to the most recent unattached session (last attached, or created if never attached; fallback: most recent of any). Was: the oldest.
+- New `smart-close.sh --pick <target>` prints where a client would land without closing anything.
+- Session names with spaces are handled (the old awk split on spaces).
+
+**Why:**
+- Joshua: with sessions 1-5, closing 4 should land on the freshest work, not on 1.
+
+---
+
 ## 2026-10-01 - `smart-close.sh` no longer moves a client that isn't on the session being closed
 
 **What changed:**
