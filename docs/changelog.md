@@ -4,6 +4,16 @@ All notable changes to terminalConfig (tmux + sesh + ghostty) are documented her
 
 ---
 
+## 2026-10-01 - `smart-close.sh` no longer moves a client that isn't on the session being closed
+
+**What changed:**
+- `tmux/smart-close.sh` switches the client to another session only when the target session has a client attached (`#{session_attached}` > 0).
+
+**Why:**
+- `close` typed by `tmux send-keys` into an unattached session (a Claude tearing down a clone) still saw that session as "current", and the bare `tmux switch-client` fell back to the most recent client anywhere, pulling Joshua out of the session he was working in. Verified: two unattached throwaway sessions closed, the attached client stayed on its session.
+
+---
+
 ## 2026-09-15 - Ghostty config joins the repo + `install.sh`
 
 **What changed:**

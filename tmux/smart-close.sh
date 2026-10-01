@@ -12,7 +12,13 @@ export PATH="/opt/homebrew/bin:$PATH"
 client_session="$(tmux display-message -p '#{session_name}')"
 target="${1:-$client_session}"
 
-if [ "$target" = "$client_session" ]; then
+# Only move a client when one is actually attached to the target. `close` typed
+# by send-keys into an UNATTACHED session still reports that session as
+# "current", and a bare switch-client then falls back to the most recent client
+# anywhere — i.e. it yanks Joshua out of the session he is working in (2026-10-01).
+attached="$(tmux display-message -p -t "=$target:" '#{session_attached}' 2>/dev/null)"
+
+if [ "$target" = "$client_session" ] && [ "${attached:-0}" -gt 0 ]; then
   next=$(tmux list-sessions -F '#{session_created} #{session_attached} #{session_name}' \
     | awk -v c="$target" '$3!=c' | sort -n \
     | awk '$2==0{ $1=""; $2=""; sub(/^  /,""); print; exit }')
