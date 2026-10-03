@@ -68,7 +68,6 @@ catppuccin mocha · paired with nvimConfig · still vibin'
 | [catppuccin/tmux](https://github.com/catppuccin/tmux) | Theme (Mocha flavor) |
 | [tmux-yank](https://github.com/tmux-plugins/tmux-yank) | System clipboard copy |
 | [tmux-battery](https://github.com/tmux-plugins/tmux-battery) | Battery in status bar |
-| [tmux-online-status](https://github.com/tmux-plugins/tmux-online-status) | Online indicator |
 | [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect) | Save/restore sessions |
 | [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum) | Auto-save every 15 min |
 

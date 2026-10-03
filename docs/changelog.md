@@ -4,6 +4,30 @@ All notable changes to terminalConfig (tmux + sesh + ghostty) are documented her
 
 ---
 
+## 2026-10-03 - tmux status bar: wifi indicator fixed on Linux, Mac leftovers removed, compact date
+
+**What changed:**
+- Wifi segment: `ping -c1 -t2` → `ping -c1 -W2`. It had read "off" since the Mac → Pocket cutover (2026-09-15).
+- Removed the two ClickUp/Gmail badge segments (they read `/tmp/cc_badges.json`, written by the archived Elevated command center; nothing writes it on the Pocket).
+- Removed the Homebrew PATH: `set-environment -g PATH "/opt/homebrew/…"` in `tmux.conf` and the `export PATH="/opt/homebrew/bin:$PATH"` lines in `sesh.sh` + `smart-close.sh`. tmux now inherits the launching shell's PATH.
+- Removed the unused `tmux-online-status` plugin (plugin line, `@online_icon`/`@offline_icon`, the TPM clone, README row). The bar uses the inline ping.
+- Date/time segment compacted from ` 󰭦 2026-10-03 󰅐 13:17 ` to `1003󰅐13:17` (MMDD, clock icon, HH:MM, no padding).
+
+**Why:**
+- `ping -t` is a timeout on macOS but the TTL on Linux, so every ping died at hop 2 and the check always failed.
+- At split-screen width the centred window list overlapped the right side (battery showed as "8%", a second window tab was hidden); dropping the dead segments and padding makes it fit.
+
+**Files modified:**
+- `tmux/tmux.conf` - ping flag, badge segments, PATH, plugin lines, date format
+- `tmux/sesh.sh`, `tmux/smart-close.sh` - Homebrew PATH export removed
+- `README.md` - plugin table row removed
+
+**Technical notes:**
+- `@continuum-restore` stays commented out ("TEMP DISABLED") by Joshua's choice; auto-save works.
+- The old hardcoded PATH lacked `~/.local/bin`, so anything tmux ran from there via `run-shell`/`#()` would not have resolved.
+
+---
+
 ## 2026-10-01 - `smart-close.sh` lands on the most recent session, not the oldest
 
 **What changed:**
