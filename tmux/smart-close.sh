@@ -9,7 +9,6 @@
 # Usage: smart-close.sh [target-session]   (defaults to current session)
 #        smart-close.sh --pick <target>    (print where a client would land; closes nothing)
 # Called by: zsh `close`, tmux `prefix X` bind, sesh popup `Ctrl-d` bind.
-export PATH="/opt/homebrew/bin:$PATH"
 
 # pick_next <target> <1 = unattached sessions only | 0 = any>
 pick_next() {

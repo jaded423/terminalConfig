@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-export PATH="/opt/homebrew/bin:$PATH"
 
 session=$(sesh list -i --hide-duplicates | fzf --ansi --no-sort --height=100% \
   --border --border-label ' sesh ' \
