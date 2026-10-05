@@ -13,3 +13,5 @@ keybind = alt+shift+enter=csi:13;4u
 mouse-scroll-multiplier = 0.95
 confirm-close-surface = false
 resize-overlay = never
+# Hide the OSC 9;4 progress bar: Claude Code's "busy" signal renders as a frozen blue block, not a moving bar.
+progress-style = false
