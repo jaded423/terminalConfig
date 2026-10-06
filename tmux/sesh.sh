@@ -38,3 +38,6 @@ session=$("$self" --list --hide-duplicates | fzf --ansi --no-sort --height=100% 
   --preview 'sesh preview {}')
 
 [ -n "$session" ] && sesh connect "$session"
+# Always 0: Esc (nothing picked) is not an error, and run-shell prints any
+# non-zero exit into the pane as "… returned 1".
+exit 0
