@@ -46,7 +46,7 @@ catppuccin mocha · paired with nvimConfig · still vibin'
 ## ✨ What makes it different
 
 - 🌌 **`C-Space` prefix** — friendlier than `C-b` on Colemak-DH home row
-- 🪟 **vim-tmux-navigator** — `<C-hjkl>` crosses nvim splits AND tmux panes seamlessly. Pairs with smart-splits in [nvimConfig](https://github.com/jaded423/nvimConfig)
+- 🪟 **vim-tmux-navigator** — `<C-hjkl>` crosses nvim splits AND tmux panes seamlessly. **j/k are swapped everywhere here (j = up, k = down)** — Colemak-DH puts the J cap above K; same swap in nvim, lazygit, Telescope. Pairs with smart-splits in [nvimConfig](https://github.com/jaded423/nvimConfig)
 - 🧭 **sesh = session manager** — fuzzy session picker bound to `<C-a>` (FZF-driven). Pre-defined sessions auto-launch nvim/claude/ssh-to-host on open
 - 💾 **resurrect + continuum** — sessions survive reboot. 15-min autosave
 - 🖥️ **status bar at top** — battery, online indicator, time, custom session display
