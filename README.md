@@ -234,7 +234,7 @@ vim-tmux-navigator `<C-hjkl>` not crossing into nvim? → nvim side needs [smart
 ## 🔗 Resources
 
 - [tmux wiki](https://github.com/tmux/tmux/wiki) · [sesh](https://github.com/joshmedeski/sesh) · [TPM](https://github.com/tmux-plugins/tpm) · [Catppuccin tmux](https://github.com/catppuccin/tmux)
-- Pairs with [nvimConfig](https://github.com/jaded423/nvimConfig) — Colemak-DH langmap, Dracula theme, full LSP/Treesitter stack
+- Pairs with [nvimConfig](https://github.com/jaded423/nvimConfig) — the same j/k swap, Dracula theme, full LSP/Treesitter stack
 
 ---
 
