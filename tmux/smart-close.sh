@@ -23,7 +23,10 @@ if [ "$1" = "--pick" ]; then
   echo "$next"; exit 0
 fi
 
-client_session="$(tmux display-message -p '#{session_name}')"
+# The sesh popup hands over the session + client it was opened from (SESH_HERE /
+# SESH_CLIENT): inside a popup tmux reports the most recently attached session of
+# any terminal, not the one in front of Joshua.
+client_session="${SESH_HERE:-$(tmux display-message -p '#{session_name}')}"
 target="${1:-$client_session}"
 
 # Only move a client when one is actually attached to the target. `close` typed
@@ -35,7 +38,7 @@ attached="$(tmux display-message -p -t "=$target:" '#{session_attached}' 2>/dev/
 if [ "$target" = "$client_session" ] && [ "${attached:-0}" -gt 0 ]; then
   next=$(pick_next "$target" 1)
   [ -z "$next" ] && next=$(pick_next "$target" 0)
-  [ -n "$next" ] && tmux switch-client -t "=$next"
+  [ -n "$next" ] && tmux switch-client ${SESH_CLIENT:+-c "$SESH_CLIENT"} -t "=$next"
 fi
 
 tmux kill-session -t "$target"

@@ -47,7 +47,7 @@ catppuccin mocha · paired with nvimConfig · still vibin'
 
 - 🌌 **`C-Space` prefix** — friendlier than `C-b` on Colemak-DH home row
 - 🪟 **vim-tmux-navigator** — `<C-hjkl>` crosses nvim splits AND tmux panes seamlessly. **j/k are swapped everywhere here (j = up, k = down)** — Colemak-DH puts the J cap above K; same swap in nvim, lazygit, Telescope. Pairs with smart-splits in [nvimConfig](https://github.com/jaded423/nvimConfig)
-- 🧭 **sesh = session manager** — fuzzy session picker bound to `<C-a>` (FZF-driven). Pre-defined sessions auto-launch nvim/claude/ssh-to-host on open
+- 🧭 **sesh = session manager** — fuzzy session picker on `prefix S` (FZF-driven; opens on the session you are in). Pre-defined sessions auto-launch nvim/claude/ssh-to-host on open
 - 💾 **resurrect + continuum** — sessions survive reboot. 15-min autosave
 - 🖥️ **status bar at top** — battery, online indicator, time, custom session display
 - 🎨 **Catppuccin Mocha** — matches the broader Dracula/cyberpunk vibe across [nvimConfig](https://github.com/jaded423/nvimConfig) + system theme
@@ -120,7 +120,7 @@ tmux
 
 | Key | Action |
 |---|---|
-| `C-a` | Sesh fuzzy session picker (no prefix needed) |
+| `prefix S` | Sesh fuzzy session picker — the session you opened it from is the first row and named in the border; `C-d` closes the highlighted row |
 | `prefix s` | Default tmux session picker |
 
 ### Panes
