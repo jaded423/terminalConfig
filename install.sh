@@ -38,3 +38,8 @@ if [ -f "$HB" ] && ! grep -q "hypr/bindings-shared.lua" "$HB"; then
   printf '\n-- Muscle-memory keys shared by every Omarchy box (close window, emoji, screenshots):\ndofile(os.getenv("HOME") .. "/projects/terminalConfig/hypr/bindings-shared.lua")\n' >> "$HB"
   echo "  hypr: bindings-shared.lua included from ~/.config/hypr/bindings.lua (hyprctl reload to apply)"
 fi
+# System copy for OTHER users on this box (their home cannot read ours): root-owned, refreshed each run.
+SYS=/usr/local/share/terminalConfig/hypr/bindings-shared.lua
+if [ -f "$HB" ] && sudo -n true 2>/dev/null; then
+  sudo install -D -m 644 "$REPO/hypr/bindings-shared.lua" "$SYS" && echo "  hypr: system copy refreshed at $SYS (secondary users include this one)"
+fi
