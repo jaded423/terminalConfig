@@ -72,7 +72,7 @@ END {
       if (l2[p] < x || w2[p] < 1) continue   # columns already drawn, or a sliver too thin to show
       covers = (y >= t2[p] && y < t2[p] + h2[p])
       if (covers) {
-        # Anchor to the bottom of the pane's CONTENT (a fresh pane may draw at the top and leave
+        # Anchor to the bottom of the CONTENT of the pane (a fresh pane may draw at the top and leave
         # the rest empty): show the h2 lines ending at its last non-blank line.
         end = (p in last) ? last[p] + 1 : Ht[p]
         if (end < h2[p]) end = h2[p]
