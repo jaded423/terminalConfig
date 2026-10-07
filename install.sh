@@ -23,3 +23,11 @@ if [ ! -f "$G/config" ]; then
 else
   echo "  ghostty stub present"
 fi
+# TPM + plugins headless (2026-10-07): a fresh machine (multi-verse) sat without the status-bar
+# theme because the only install path was prefix+I inside a running tmux.
+TPM="$REPO/tmux/plugins/tpm"
+if [ ! -d "$TPM" ]; then
+  git clone -q https://github.com/tmux-plugins/tpm "$TPM" && echo "  cloned tpm"
+fi
+"$TPM/bin/install_plugins" >/dev/null 2>&1 && echo "  tmux plugins installed"
+tmux source-file "$REPO/tmux/tmux.conf" >/dev/null 2>&1 || true

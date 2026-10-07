@@ -94,20 +94,8 @@ brew install tmux sesh fzf
 # Clone
 git clone https://github.com/jaded423/terminalConfig.git ~/projects/terminalConfig
 
-# Backup any existing configs
-mv ~/.config/tmux ~/.config/tmux.backup 2>/dev/null
-mv ~/.config/sesh ~/.config/sesh.backup 2>/dev/null
-
-# Symlink
-ln -s ~/projects/terminalConfig/tmux ~/.config/tmux
-ln -s ~/projects/terminalConfig/sesh ~/.config/sesh
-
-# Install TPM (Tmux Plugin Manager)
-git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
-
-# Launch + install plugins
-tmux
-# Inside tmux: C-Space then I (capital) to install plugins
+# Symlink tmux + sesh, write the Ghostty stub, clone TPM and install its plugins (idempotent)
+~/projects/terminalConfig/install.sh
 ```
 
 ---
