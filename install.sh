@@ -29,5 +29,5 @@ TPM="$REPO/tmux/plugins/tpm"
 if [ ! -d "$TPM" ]; then
   git clone -q https://github.com/tmux-plugins/tpm "$TPM" && echo "  cloned tpm"
 fi
-"$TPM/bin/install_plugins" >/dev/null 2>&1 && echo "  tmux plugins installed"
+"$TPM/bin/install_plugins" 2>&1 | grep -i "success\|fail" | sed "s/^/  /"
 tmux source-file "$REPO/tmux/tmux.conf" >/dev/null 2>&1 || true
