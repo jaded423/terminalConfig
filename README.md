@@ -146,12 +146,17 @@ git clone https://github.com/jaded423/terminalConfig.git ~/projects/terminalConf
 │   ├── tmux.conf                # main config
 │   ├── sesh.sh                  # helper scripts (split, sesh launchers)
 │   └── plugins/                 # TPM-managed (gitignored)
-└── sesh/                        # symlinked → ~/.config/sesh
-    ├── sesh.toml                # named-session definitions
-    └── scripts/
-        ├── default.sh           # default session: claude + neo (nvim)
-        ├── remote.sh            # SSH multiplex: book5/omarchy/tower/ubuntu
-        └── btop.sh              # system monitor session
+├── sesh/                        # symlinked → ~/.config/sesh
+│   ├── sesh.toml                # named-session definitions
+│   └── scripts/
+│       ├── default.sh           # default session: claude + neo (nvim)
+│       ├── remote.sh            # SSH multiplex: book5/omarchy/tower/ubuntu
+│       └── btop.sh              # system monitor session
+├── ghostty/                     # included from ~/.config/ghostty/config (stub written by install.sh)
+│   ├── config · linux.conf · mac.conf · dark.conf   # shared → per-OS → 85% glass override
+└── hypr/                        # Omarchy boxes only
+    └── bindings-shared.lua      # muscle-memory keys (close window, emoji, screenshots);
+                                 # dofile()'d from ~/.config/hypr/bindings.lua, line added by install.sh
 ```
 
 ---
