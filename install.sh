@@ -31,3 +31,10 @@ if [ ! -d "$TPM" ]; then
 fi
 "$TPM/bin/install_plugins" 2>&1 | grep -i "success\|fail" | sed "s/^/  /"
 tmux source-file "$REPO/tmux/tmux.conf" >/dev/null 2>&1 || true
+
+# Hyprland (Omarchy boxes only): include the shared muscle-memory binds from ~/.config/hypr/bindings.lua
+HB="$HOME/.config/hypr/bindings.lua"
+if [ -f "$HB" ] && ! grep -q "hypr/bindings-shared.lua" "$HB"; then
+  printf '\n-- Muscle-memory keys shared by every Omarchy box (close window, emoji, screenshots):\ndofile(os.getenv("HOME") .. "/projects/terminalConfig/hypr/bindings-shared.lua")\n' >> "$HB"
+  echo "  hypr: bindings-shared.lua included from ~/.config/hypr/bindings.lua (hyprctl reload to apply)"
+fi
