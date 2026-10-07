@@ -1,0 +1,1 @@
+- [ ] Roll terminalConfig out to the homelab hosts (book5, tower, ubuntu) — today each has its own hand-kept tmux.conf with `C-n` hardcoded; the `%if host_short` block in tmux.conf (2026-10-07) would take them as branches, so one repo covers the fleet. Joshua: "might one day". Prefix per host: Pocket C-Space, everything nested under it C-n. (added 2026-10-07)
