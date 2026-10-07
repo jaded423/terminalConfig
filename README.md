@@ -184,10 +184,13 @@ Add your own in `sesh.toml`. `sesh` auto-detects git repos in `~/projects` as ep
 
 ## 🎨 Customization
 
-**Change prefix** — `tmux.conf` line ~14:
+**Prefix** — per machine, in `tmux.conf` (one tracked file, no per-host override):
 ```tmux
-unbind C-b
-set -g prefix C-Space
+%if "#{==:#{host_short},multi-verse}"
+set -g prefix C-n        # reached from inside a Pocket tmux — a prefix can't pass through itself
+%else
+set -g prefix C-Space    # the Pocket
+%endif
 ```
 
 **Change theme** — `tmux.conf`:
