@@ -7,6 +7,14 @@ startup_command = "tmux rename-window Book5 && ssh book5 -t 'zsh -ic t'"
 windows = ["Omarchy", "Tower", "Ubuntu", "Dax"]
 
 [[session]]
+name = "all-go"
+startup_command = "~/.config/sesh/scripts/all.sh go"
+
+[[session]]
+name = "all-multi"
+startup_command = "~/.config/sesh/scripts/all.sh multi"
+
+[[session]]
 name = "btop"
 startup_command = "~/.config/sesh/scripts/btop.sh"
 

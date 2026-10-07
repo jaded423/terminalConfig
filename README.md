@@ -170,6 +170,7 @@ Pre-defined sessions in `sesh/sesh.toml`:
 | `default` | Window 1: `claude` (Claude Code CLI). Window 2: `nvim` |
 | `remote` | Multi-window SSH split: Book5, Omarchy, Tower, Ubuntu — full homelab on one prefix |
 | `btop` | System monitor in a dedicated session |
+| `all-go` / `all-multi` | One window per ACCOUNT on a shared box (`go` + `go-kid`; `multi-verse`, + `multi-kid` later), each attached to that account's own tmux — attach wherever the kids are and help. Script `sesh/scripts/all.sh` |
 
 Add your own in `sesh.toml`. `sesh` auto-detects git repos in `~/projects` as ephemeral sessions too.
 
