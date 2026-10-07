@@ -35,7 +35,7 @@ session=$("$self" --list --hide-duplicates | fzf --ansi --no-sort --height=100% 
   --preview-window 'right:70%' \
   --preview-label ' C-a all / C-t tmux / C-x zoxide / C-g config / C-f find / C-d kill ' \
   --preview-label-pos 'bottom' \
-  --preview 'sesh preview {}')
+  --preview '~/.config/tmux/sesh-preview.sh {}')
 
 [ -n "$session" ] && sesh connect "$session"
 # Always 0: Esc (nothing picked) is not an error, and run-shell prints any
