@@ -14,7 +14,9 @@ first=1
 for h in $hosts; do
   if (( first )); then tmux rename-window -t "$SESSION" "$h"; first=0
   else tmux new-window -t "$SESSION" -n "$h"; fi
-  # kid accounts run bash, so no `zsh -ic t`: attach to their tmux, or start one
-  tmux send-keys -t "$SESSION:$h" "ssh $h -t 'tmux attach 2>/dev/null || tmux new'" Enter
+  # kid accounts run bash, so no `zsh -ic t`: attach to their tmux, or start one.
+  # -u: a remote ssh command skips the login profile, so the tmux CLIENT starts in the POSIX
+  # locale and draws every non-ASCII glyph as '_' (Claude's bullets, p10k icons) — 2026-10-22.
+  tmux send-keys -t "$SESSION:$h" "ssh $h -t 'tmux -u attach 2>/dev/null || tmux -u new'" Enter
 done
 tmux select-window -t "$SESSION:${hosts[1]}"
