@@ -58,3 +58,10 @@ if command -v omarchy-theme-set >/dev/null 2>&1; then
     fi
   done
 fi
+
+# Omasnap "edit image" Open-With entry (2026-11-07; the stock omasnap.desktop has no %f / MimeType).
+if command -v omasnap >/dev/null 2>&1; then
+  mkdir -p "$HOME/.local/share/applications"
+  ln -sfn "$REPO/omarchy/applications/omasnap-edit.desktop" "$HOME/.local/share/applications/omasnap-edit.desktop" \
+    && echo "  omasnap-edit.desktop linked" && update-desktop-database "$HOME/.local/share/applications" 2>/dev/null
+fi

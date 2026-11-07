@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Omasnap (edit image)
+Comment=Annotate an existing image in Omasnap's editor
+Exec=omasnap %f
+Icon=camera-photo
+Terminal=false
+Categories=Graphics;
+MimeType=image/png;image/jpeg;image/webp;image/gif;image/bmp;
+StartupNotify=false
