@@ -43,3 +43,18 @@ SYS=/usr/local/share/terminalConfig/hypr/bindings-shared.lua
 if [ -f "$HB" ] && sudo -n true 2>/dev/null; then
   sudo install -D -m 644 "$REPO/hypr/bindings-shared.lua" "$SYS" && echo "  hypr: system copy refreshed at $SYS (secondary users include this one)"
 fi
+
+# Omarchy user themes (2026-11-07): Omarchy 4.5 stopped shipping osaka-jade's files (only the intro
+# video remains), and the update wiped the active theme. A user theme in ~/.config/omarchy/themes
+# shadows the system one and survives updates; the files live in omarchy/themes/ here.
+if command -v omarchy-theme-set >/dev/null 2>&1; then
+  mkdir -p "$CFG/omarchy/themes"
+  for t in "$REPO"/omarchy/themes/*/; do
+    n=$(basename "$t")
+    if [ -L "$CFG/omarchy/themes/$n" ] || [ ! -e "$CFG/omarchy/themes/$n" ]; then
+      ln -sfn "${t%/}" "$CFG/omarchy/themes/$n" && echo "  omarchy theme: $n linked (omarchy-theme-set \"$n\" to apply)"
+    else
+      echo "  omarchy theme $n exists and is not a symlink — left alone"
+    fi
+  done
+fi

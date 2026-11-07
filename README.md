@@ -253,3 +253,10 @@ $ tmux kill-server
 **[jadedviber.com](https://jadedviber.com)** · *All vibe. No grind.* 🐍
 
 </div>
+
+## omarchy/themes/ — user themes that survive Omarchy updates
+`osaka-jade` (Joshua's theme) — copied from the `omarchyLegacy` 3.8.2 pin on 2026-11-07 after Omarchy 4.5.0-3
+shipped the theme without its files and the update emptied the active theme. `install.sh` symlinks each
+into `~/.config/omarchy/themes/` (which Omarchy prefers over `/usr/share/omarchy/themes/`). Apply with
+`omarchy-theme-set "Osaka Jade"`; switch to any other theme the same way and back. The wallpaper is picked
+per theme (`omarchy-theme-bg-set <file>`).
