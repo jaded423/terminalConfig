@@ -19,14 +19,12 @@ hl.unbind("SUPER + CTRL + RETURN")
 o.bind("SUPER + CTRL + RETURN", "Emojis", "omarchy-shell shell toggle omarchy.emojis")
 
 -- Mac-style screenshots (2026-09-28): CTRL+SHIFT+4 = smart picker (region / window), CTRL+SHIFT+5 =
--- full screen, PRINT = smart. Saved to ~/Pictures/screenshots + clipboard. The editor wrapper
--- (scripts/bin/screenshot-edit: Tensaku, re-copies on save) is used only where that repo exists.
-local editor = home .. "/projects/scripts/bin/screenshot-edit"
+-- full screen, PRINT = smart. Saved to ~/Pictures/screenshots + clipboard. Annotation is omasnap's
+-- own editor (preview toast → Edit). 2026-11-07: Omarchy 4.5 made `--editor` take only
+-- window|overlay and dropped Tensaku, so the old `--editor=<script path>` made omasnap exit
+-- ("--editor takes window or overlay") and every screenshot key silently did nothing.
 local function screenshot(mode)
-  local cmd = "env OMARCHY_SCREENSHOT_DIR=" .. home .. "/Pictures/screenshots omarchy-capture-screenshot " .. mode
-  local f = io.open(editor, "r")
-  if f then f:close(); cmd = cmd .. " --editor=" .. editor end
-  return cmd
+  return "env OMARCHY_SCREENSHOT_DIR=" .. home .. "/Pictures/screenshots omarchy-capture-screenshot " .. mode
 end
 o.bind("CTRL + SHIFT + 4", "Screenshot (smart: region / window)", screenshot("smart"))
 o.bind("CTRL + SHIFT + 5", "Screenshot (full screen)", screenshot("fullscreen"))
