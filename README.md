@@ -182,6 +182,10 @@ Add your own in `sesh.toml`. `sesh` auto-detects git repos in `~/projects` as ep
 ```tmux
 %if "#{==:#{host_short},multi-verse}"
 set -g prefix C-n        # reached from inside a Pocket tmux — a prefix can't pass through itself
+%elif "#{==:#{host_short},BEWELL}"
+set -g prefix C-n        # the Be Well PC (WSL): same role as multi-verse
+%elif "#{==:#{host_short},go}"
+set -g prefix C-b        # the Go
 %else
 set -g prefix C-Space    # the Pocket
 %endif
